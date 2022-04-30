@@ -1,8 +1,17 @@
 package com.carmarket.app.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "cars")
 public class Car {
 
@@ -20,7 +29,11 @@ public class Car {
     @Column(name = "price")
     private double price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

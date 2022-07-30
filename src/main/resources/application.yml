@@ -1,3 +1,0 @@
-application:
-  limit: true
-  page-size-limit: 10
